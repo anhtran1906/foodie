@@ -92,6 +92,12 @@ export default class Home extends Component {
   onEndReached  = () => {
    this.getPostsFromApiAsync();
  }
+
+ handleButtonPress = (error: ?Object, result: ?Object) => {
+   {
+     this.props.navigation.navigate('Filter');
+   }
+ }
   renderRow(rowData) {
     return (
       <View style={styles.header}>
@@ -131,6 +137,12 @@ export default class Home extends Component {
   }
 
   render() {
+    if(this.state.dataSource.getRowCount() === 0 ){
+     return (
+       <View style={{marginTop:20}}>
+        <Text>Loading.....</Text>
+        </View>);
+    }
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -138,6 +150,7 @@ export default class Home extends Component {
             <Button
               title='filter'
               color='white'
+              onPress={this.handleButtonPress}
             />
           </View>
           <View style={styles.searchBar}>

@@ -1,6 +1,7 @@
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 import Home from './Home';
 import Login from './Login';
+import Filter from './Filter';
 import { combineReducers, createStore } from 'redux';
 import React from 'react';
 import {connect, Provider} from 'react-redux';
@@ -11,6 +12,9 @@ const AppRouteConfigs = {
   },
   Home: {
     screen: Home,
+  },
+  Filter: {
+    screen: Filter,
   },
 }
 const AppNavigator = StackNavigator(AppRouteConfigs);
